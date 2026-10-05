@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Analityk Danych</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151e2e',
+                            900: '#0f172a',
+                        },
+                        emerald: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569; 
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-300 font-sans antialiased leading-relaxed selection:bg-emerald-500 selection:text-white">
+
+    <nav class="fixed w-full z-50 top-0 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-white tracking-tight">
+                        <i class="fa-solid fa-chart-pie text-emerald-500 mr-2"></i>Data<span class="text-emerald-500">Pro</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#o-mnie" class="hover:text-emerald-400 text-slate-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">O mnie</a>
+                        <a href="#umiejetnosci" class="hover:text-emerald-400 text-slate-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">Umiejętności</a>
+                        <a href="#projekty" class="hover:text-emerald-400 text-slate-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">Projekty</a>
+                        <a href="#kontakt" class="hover:text-emerald-400 text-slate-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">Kontakt</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button (JS logic omitted for simplicity in this pure HTML/CSS structure, fallback to wrap) -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-slate-300 hover:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+        <!-- O mnie Section -->
+        <section id="o-mnie" class="min-h-[80vh] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="inline-block p-2 px-4 rounded-full bg-slate-800 border border-slate-700 text-emerald-400 text-sm font-semibold mb-6">
+                    👋 Cześć, jestem Jan Kowalski
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-6">
+                    Przekuwam surowe dane w <br class="hidden md:block" />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500">
+                        decyzje biznesowe.
+                    </span>
+                </h1>
+                <p class="mt-4 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10">
+                    Jestem analitykiem danych z pasją do odkrywania ukrytych wzorców. Specjalizuję się w wizualizacji danych, modelowaniu predykcyjnym oraz automatyzacji raportowania. Moim celem jest dostarczanie czytelnych i użytecznych insightów.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#projekty" class="w-full sm:w-auto px-8 py-3 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-semibold transition-all shadow-[0_0_15px_rgba(16,185,129,0.3)] hover:shadow-[0_0_25px_rgba(16,185,129,0.5)]">
+                        Zobacz moje projekty
+                    </a>
+                    <a href="#kontakt" class="w-full sm:w-auto px-8 py-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-semibold border border-slate-700 transition-all">
+                        Skontaktuj się
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Moje Umiejętności Section -->
+        <section id="umiejetnosci" class="py-20 bg-slate-850">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-white mb-4">Moje Umiejętności</h2>
+                    <div class="h-1 w-20 bg-emerald-500 mx-auto rounded"></div>
+                    <p class="mt-4 text-slate-400">Technologie i narzędzia, z których korzystam na co dzień.</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                    <!-- Skill Tag -->
+                    <div class="bg-slate-800 rounded-xl p-6 flex flex-col items-center justify-center gap-3 border border-slate-700 hover:border-emerald-500/50 transition-colors group">
+                        <i class="fa-solid fa-database text-4xl text-slate-400 group-hover:text-emerald-400 transition-colors"></i>
+                        <span class="font-medium text-slate-200">SQL</span>
+                    </div>
+                    <div class="bg-slate-800 rounded-xl p-6 flex flex-col items-center justify-center gap-3 border border-slate-700 hover:border-emerald-500/50 transition-colors group">
+                        <i class="fa-brands fa-python text-4xl text-slate-400 group-hover:text-emerald-400 transition-colors"></i>
+                        <span class="font-medium text-slate-200">Python</span>
+                    </div>
+                    <div class="bg-slate-800 rounded-xl p-6 flex flex-col items-center justify-center gap-3 border border-slate-700 hover:border-emerald-500/50 transition-colors group">
+                        <i class="fa-solid fa-chart-column text-4xl text-slate-400 group-hover:text-emerald-400 transition-colors"></i>
+                        <span class="font-medium text-slate-200">Power BI</span>
+                    </div>
+                    <div class="bg-slate-800 rounded-xl p-6 flex flex-col items-center justify-center gap-3 border border-slate-700 hover:border-emerald-500/50 transition-colors group">
+                        <i class="fa-solid fa-file-excel text-4xl text-slate-400 group-hover:text-emerald-400 transition-colors"></i>
+                        <span class="font-medium text-slate-200">Excel</span>
+                    </div>
+                    <div class="bg-slate-800 rounded-xl p-6 flex flex-col items-center justify-center gap-3 border border-slate-700 hover:border-emerald-500/50 transition-colors group">
+                        <i class="fa-solid fa-chart-line text-4xl text-slate-400 group-hover:text-emerald-400 transition-colors"></i>
+                        <span class="font-medium text-slate-200">Analiza Danych</span>
+                    </div>
+                </div>
+
+                <!-- Progress bars for softer skills -->
+                <div class="mt-16 max-w-3xl mx-auto space-y-6">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-slate-300">Wizualizacja Danych (Tableau, Power BI)</span>
+                            <span class="text-sm font-medium text-emerald-400">90%</span>
+                        </div>
+                        <div class="w-full bg-slate-700 rounded-full h-2.5">
+                            <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-slate-300">Przetwarzanie Danych (Pandas, ETL)</span>
+                            <span class="text-sm font-medium text-emerald-400">85%</span>
+                        </div>
+                        <div class="w-full bg-slate-700 rounded-full h-2.5">
+                            <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-slate-300">Machine Learning (Podstawy predykcji)</span>
+                            <span class="text-sm font-medium text-emerald-400">65%</span>
+                        </div>
+                        <div class="w-full bg-slate-700 rounded-full h-2.5">
+                            <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wybrane Projekty Section -->
+        <section id="projekty" class="py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-white mb-4">Wybrane Projekty</h2>
+                    <div class="h-1 w-20 bg-emerald-500 mx-auto rounded"></div>
+                    <p class="mt-4 text-slate-400">Przegląd moich najciekawszych analiz i wdrożeń.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Projekt 1 -->
+                    <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 flex flex-col hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-emerald-500/10">
+                        <div class="h-48 bg-slate-700 relative flex items-center justify-center">
+                            <!-- Placeholder dla obrazka. W realnym projekcie użyj <img> -->
+                            <i class="fa-solid fa-gears text-6xl text-slate-600"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-800 to-transparent"></div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2">Analiza kosztów części zamiennych</h3>
+                            <p class="text-slate-400 text-sm mb-4 flex-grow">
+                                Kompleksowa analiza wydatków na części zamienne w firmie produkcyjnej. Identyfikacja nieefektywności kosztowych, która pozwoliła na redukcję budżetu o 15% w skali roku.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 bg-slate-700 text-emerald-400 text-xs rounded-md font-medium">SQL</span>
+                                <span class="px-2 py-1 bg-slate-700 text-emerald-400 text-xs rounded-md font-medium">Power BI</span>
+                                <span class="px-2 py-1 bg-slate-700 text-emerald-400 text-xs rounded-md font-medium">DAX</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+                                <a href="#" class="flex-1 text-center bg-emerald-500 hover:bg-emerald-600 text-white py-2 px-4 rounded-lg text-sm font-medium transition-colors">
+                                    <i class="fa-solid fa-eye mr-2"></i>Zobacz projekt
+                                </a>
+                                <a href="#" class="flex-1 text-center bg-slate-700 hover:bg-slate-600 text-white py-2 px-4 rounded-lg text-sm font-medium transition-colors">
+                                    <i class="fa-brands fa-github mr-2"></i>Pliki
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projekt 2 -->
+                    <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 flex flex-col hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-emerald-500/10">
+                        <div class="h-48 bg-slate-700 relative flex items-center justify-center">
+                            <i class="fa-solid fa-users-slash text-6xl text-slate-600"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-800 to-transparent"></div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2">Predykcja odejść klientów (Churn)</h3>
+                            <p class="text-slate-400 text-sm mb-4 flex-grow">
+                                Model uczenia maszynowego przewidujący prawdopodobieństwo rezygnacji klientów z subskrypcji. Zastosowanie algorytmu Random Forest poprawiło retencję.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 bg-slate-700 text-emerald-400 text-xs rounded-md font-medium">Python</span>
+                                <span class="px-2 py-1 bg-slate-700 text-emerald-400 text-xs rounded-md font-medium">Scikit-Learn</span>
+                                <span class="px-2 py-1 bg-slate-700 text-emerald-400 text-xs rounded-md font-medium">Pandas</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+                                <a href="#" class="flex-1 text-center bg-emerald-500 hover:bg-emerald-600 text-white py-2 px-4 rounded-lg text-sm font-medium transition-colors">
+                                    <i class="fa-solid fa-eye mr-2"></i>Zobacz projekt
+                                </a>
+                                <a href="#" class="flex-1 text-center bg-slate-700 hover:bg-slate-600 text-white py-2 px-4 rounded-lg text-sm font-medium transition-colors">
+                                    <i class="fa-brands fa-github mr-2"></i>Pliki
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projekt 3 -->
+                    <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 flex flex-col hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-emerald-500/10">
+                        <div class="h-48 bg-slate-700 relative flex items-center justify-center">
+                            <i class="fa-solid fa-chart-line text-6xl text-slate-600"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-800 to-transparent"></div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2">Zautomatyzowany Dashboard Sprzedaży</h3>
+                            <p class="text-slate-400 text-sm mb-4 flex-grow">
+                                Interaktywny dashboard w programie Excel pobierający dane z bazy SQL za pomocą PowerQuery. Umożliwia śledzenie KPI sprzedażowych w czasie rzeczywistym.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 bg-slate-700 text-emerald-400 text-xs rounded-md font-medium">Excel</span>
+                                <span class="px-2 py-1 bg-slate-700 text-emerald-400 text-xs rounded-md font-medium">PowerQuery</span>
+                                <span class="px-2 py-1 bg-slate-700 text-emerald-400 text-xs rounded-md font-medium">VBA</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+                                <a href="#" class="flex-1 text-center bg-emerald-500 hover:bg-emerald-600 text-white py-2 px-4 rounded-lg text-sm font-medium transition-colors">
+                                    <i class="fa-solid fa-eye mr-2"></i>Zobacz projekt
+                                </a>
+                                <a href="#" class="flex-1 text-center bg-slate-700 hover:bg-slate-600 text-white py-2 px-4 rounded-lg text-sm font-medium transition-colors">
+                                    <i class="fa-brands fa-github mr-2"></i>Pliki
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontakt Section -->
+        <section id="kontakt" class="py-20 bg-slate-850">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-white mb-4">Kontakt</h2>
+                    <div class="h-1 w-20 bg-emerald-500 mx-auto rounded"></div>
+                    <p class="mt-4 text-slate-400">Szukasz analityka do swojego zespołu? Napisz do mnie!</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Informacje kontaktowe -->
+                    <div class="flex flex-col justify-center space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-emerald-400 border border-slate-700">
+                                <i class="fa-solid fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-slate-300 font-medium">Email</h4>
+                                <a href="mailto:kontakt@twojastrona.pl" class="text-slate-400 hover:text-emerald-400 transition-colors">kontakt@twojastrona.pl</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-emerald-400 border border-slate-700">
+                                <i class="fa-brands fa-linkedin-in text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-slate-300 font-medium">LinkedIn</h4>
+                                <a href="#" class="text-slate-400 hover:text-emerald-400 transition-colors">linkedin.com/in/jankowalski</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-emerald-400 border border-slate-700">
+                                <i class="fa-brands fa-github text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-slate-300 font-medium">GitHub</h4>
+                                <a href="#" class="text-slate-400 hover:text-emerald-400 transition-colors">github.com/jankowalski</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formularz -->
+                    <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-xl">
+                        <form action="#" method="POST" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-slate-400 mb-1">Imię i nazwisko</label>
+                                <input type="text" id="name" name="name" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-300 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors" placeholder="Twoje imię" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-slate-400 mb-1">Adres e-mail</label>
+                                <input type="email" id="email" name="email" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-300 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors" placeholder="twoj@email.com" required>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-slate-400 mb-1">Wiadomość</label>
+                                <textarea id="message" name="message" rows="4" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-300 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors resize-none" placeholder="O czym chcesz porozmawiać?" required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors shadow-lg shadow-emerald-500/20">
+                                Wyślij wiadomość
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-8 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-slate-500 text-sm">
+                &copy; 2026 Jan Kowalski. Wszelkie prawa zastrzeżone.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
